@@ -6,6 +6,7 @@ from api import db
 from customers.models import Customer
 from customers.schemes import CustomerScheme
 from flask_accepts import accepts, responds
+from sqlalchemy import desc
 
 
 api = Namespace(
@@ -30,6 +31,14 @@ class CustomerList(Resource):
         db.session.add(customer)
         db.session.commit()
         return customer
+
+
+@api.route('/nyoungest/<int:n>')
+class NYoungCustomerList(Resource):
+    @responds(schema=CustomerScheme(many=True), api=api, status_code=200)
+    def get(self, n):
+        customers = Customer.query.order_by(desc(Customer.dob)).limit(n).all()
+        return customers
 
 
 @api.route('/customers/<string:customer_id>')
