@@ -2,7 +2,7 @@ from flask import Flask
 from flask_restx import Api
 from api.extenstions import db, ma
 from api.config import config_by_name
-from api.customers import register_routes
+from customers import register_routes
 import os
 
 

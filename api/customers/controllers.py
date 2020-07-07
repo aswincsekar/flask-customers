@@ -1,10 +1,10 @@
 from flask import request
-from flask_restx import Resource, Api, Namespace
+from flask_restx import Resource, Namespace
 from flask_restx.errors import abort
 from datetime import datetime
-from api import db, create_app
-from api.customers.models import Customer
-from api.customers.schemes import CustomerScheme
+from api import db
+from customers.models import Customer
+from customers.schemes import CustomerScheme
 from flask_accepts import accepts, responds
 
 
