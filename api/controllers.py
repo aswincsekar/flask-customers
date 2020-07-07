@@ -11,12 +11,6 @@ app = create_app()
 
 api = Api(app)
 
-model = api.model('Customer', {
-    'name': fields.String,
-    'dob': fields.Date,
-    'updated_at': fields.DateTime
-})
-
 
 @api.route('/customer/')
 class CustomerList(Resource):
