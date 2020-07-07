@@ -7,7 +7,7 @@ This project is a submission to klinify for the role of Backend Developer
 - [x] Create a simple customer data model,
 - [x] Implement an API that will perform CRUD operations on the customer data model, and
 - [x] Prepare documentation to guide a user on how to get the above running, and how to use it
-- [ ] List Action - Youngest N Customers
+- [x] List Action - Youngest N Customers
 - [ ] JWT Authentication 
 
 ### Optional Requirements
