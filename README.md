@@ -6,7 +6,7 @@ This project is a submission to klinify for the role of Backend Developer
 
 - [x] Create a simple customer data model,
 - [x] Implement an API that will perform CRUD operations on the customer data model, and
-- [ ] Prepare documentation to guide a user on how to get the above running, and how to use it
+- [x] Prepare documentation to guide a user on how to get the above running, and how to use it
 - [ ] List Action - Youngest N Customers
 - [ ] JWT Authentication 
 
@@ -42,5 +42,21 @@ Replay attacks are possible with JWT since the auth data is stored client-side. 
 ### Deployment or packaging
 Prepare a docker image or docker-compose file that provides a means of easy deployment.
 The build process should include the necessary initialization of Postgres and any misc. configuration.
+
+# Demo Process
+
+## Building Images
+
+`docker-compose -f docker-compose.yml build`
+
+## Starting Docker Services
+
+`docker-compose -f docker-compose.yml up -d`
+
+## Testing API
+
+1. Open Browser
+2. Go to localhost
+3. Test APIs on the swagger interface
 
 
