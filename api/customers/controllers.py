@@ -1,18 +1,20 @@
 from flask import request
-from flask_restx import Resource, fields, Api
+from flask_restx import Resource, Api, Namespace
 from flask_restx.errors import abort
 from datetime import datetime
 from api import db, create_app
-from api.models import Customer
-from api.schemes import CustomerScheme
+from api.customers.models import Customer
+from api.customers.schemes import CustomerScheme
 from flask_accepts import accepts, responds
 
-app = create_app()
 
-api = Api(app)
+api = Namespace(
+    "Customers",
+    description="Help's you to manage customers"
+)
 
 
-@api.route('/customer/')
+@api.route('/customers/')
 class CustomerList(Resource):
     @responds(schema=CustomerScheme(many=True), api=api, status_code=200)
     def get(self):
@@ -30,7 +32,7 @@ class CustomerList(Resource):
         return customer
 
 
-@api.route('/customer/<string:customer_id>')
+@api.route('/customers/<string:customer_id>')
 class CustomerDetail(Resource):
     @responds(schema=CustomerScheme, api=api, status_code=200)
     def get(self, customer_id):
@@ -57,5 +59,4 @@ class CustomerDetail(Resource):
         return '', 204
 
 
-if __name__ == '__main__':
-    app.run()
+
