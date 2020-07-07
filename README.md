@@ -12,7 +12,7 @@ This project is a submission to klinify for the role of Backend Developer
 
 ### Optional Requirements
 - [ ] Design against Replay Attack
-- [ ] Dockerize
+- [x] Dockerize
 
 ## Specifications
 
