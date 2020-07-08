@@ -7,6 +7,10 @@ from customers.models import Customer
 from customers.schemes import CustomerScheme
 from flask_accepts import accepts, responds
 from sqlalchemy import desc
+from flask_jwt_extended import (
+    jwt_required, create_access_token,
+    get_jwt_identity
+)
 
 
 api = Namespace(
@@ -17,11 +21,13 @@ api = Namespace(
 
 @api.route('/customers/')
 class CustomerList(Resource):
+    @jwt_required
     @responds(schema=CustomerScheme(many=True), api=api, status_code=200)
     def get(self):
         customers = Customer.query.all()
         return customers
 
+    @jwt_required
     @accepts(schema=CustomerScheme(exclude=("id",)), api=api)
     @responds(schema=CustomerScheme, api=api, status_code=201)
     def post(self):
@@ -35,6 +41,7 @@ class CustomerList(Resource):
 
 @api.route('/nyoungest/<int:n>')
 class NYoungCustomerList(Resource):
+    @jwt_required
     @responds(schema=CustomerScheme(many=True), api=api, status_code=200)
     def get(self, n):
         customers = Customer.query.order_by(desc(Customer.dob)).limit(n).all()
@@ -43,6 +50,7 @@ class NYoungCustomerList(Resource):
 
 @api.route('/customers/<string:customer_id>')
 class CustomerDetail(Resource):
+    @jwt_required
     @responds(schema=CustomerScheme, api=api, status_code=200)
     def get(self, customer_id):
         customer = Customer.query.get(customer_id)
@@ -51,6 +59,7 @@ class CustomerDetail(Resource):
         else:
             abort(404, "Customer ID Not Found")
 
+    @jwt_required
     @accepts(schema=CustomerScheme, api=api, partial=True)
     @responds(schema=CustomerScheme, api=api, status_code=200)
     def put(self, customer_id):

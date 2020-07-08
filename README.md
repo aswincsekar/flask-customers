@@ -8,10 +8,10 @@ This project is a submission to klinify for the role of Backend Developer
 - [x] Implement an API that will perform CRUD operations on the customer data model, and
 - [x] Prepare documentation to guide a user on how to get the above running, and how to use it
 - [x] List Action - Youngest N Customers
-- [ ] JWT Authentication 
+- [x] JWT Authentication 
 
 ### Optional Requirements
-- [ ] Design against Replay Attack
+- [x] Design against Replay Attack
 - [x] Dockerize
 
 ## Specifications
