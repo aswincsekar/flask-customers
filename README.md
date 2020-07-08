@@ -1,5 +1,17 @@
 # Flask Customers API 
 
+## Stack and Libraries
+
+1. Docker
+2. Nginx
+3. Gunicorn
+4. Flask
+5. Flask-restx
+6. Flask-marshmallow
+7. Flask-SQLAlchemy
+8. Flask-JWT-Extended
+9. PostgreSQL
+
 ## Requirements:
 
 - [x] Create a simple customer data model,
