@@ -1,5 +1,5 @@
 from flask import request
-from flask_restx import Resource, Namespace
+from flask_restx import Resource, Namespace, reqparse
 from flask_restx.errors import abort
 from datetime import datetime
 from api import db
@@ -39,11 +39,16 @@ class CustomerList(Resource):
         return customer
 
 
-@api.route('/nyoungest/<int:n>')
+parser = reqparse.RequestParser()
+parser.add_argument("n", type=int, help="N Youngest", default=1)
+@api.route('/nyoungest/')
 class NYoungCustomerList(Resource):
     @jwt_required
+    @api.expect(parser, validate=True)
     @responds(schema=CustomerScheme(many=True), api=api, status_code=200)
-    def get(self, n):
+    def get(self):
+        parsed_queries = parser.parse_args(strict=True)
+        n = parsed_queries.get('n')
         customers = Customer.query.order_by(desc(Customer.dob)).limit(n).all()
         return customers
 
