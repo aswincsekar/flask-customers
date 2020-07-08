@@ -64,9 +64,120 @@ The build process should include the necessary initialization of Postgres and an
 2. Go to localhost
 3. Test APIs on the swagger interface
 
-or use the given postman collection to test the API
+### Workflow
+
+#### Login
+
+User should get the JWT token at 
+
+`http://localhost/api/v1/authentication/login`
+
+METHOD : POST 
+
+Access Credentials
+
+```
+username : test
+password : test
+```
+
+RESPONSE : 
+
+```
+{
+    access_token : {token},
+    refresh_token : {token}
+}
+```
+
+#### Refresh Token
+
+User should get the JWT token at 
+
+`http://localhost/api/v1/authentication/refresh`
+
+METHOD : POST 
+
+AUTHORIZATION : Bearer Token 
+
+RESPONSE : 
+
+```
+{
+    access_token : {token},
+    refresh_token : {token}
+}
+```
+
+#### Get Customers
+
+`http://localhost/api/v1/customers/customers`
+
+METHOD : GET
+
+AUTHORIZATION : Bearer Token 
+
+#### Create Customers
+
+`http://localhost/api/v1/customers/customers`
+
+METHOD : POST
+
+AUTHORIZATION : Bearer Token 
+
+BODY :
+
+```
+{
+  "updated_at": "2020-07-08T12:55:49.930Z",
+  "name": "string",
+  "dob": "2020-07-08"
+}
+```
+
+#### Get N Youngest
+
+`http://localhost/api/v1/customers/nyoungest?n=1`
+
+METHOD : GET
+
+PARAMS : n -> int
+
+AUTHORIZATION : Bearer Token 
+
+#### Update Customer
+
+`http://localhost/api/v1/customers/customers/{customer_id}`
+
+METHOD : PUT
+
+AUTHORIZATION : Bearer Token 
+
+BODY :
+
+```
+{
+  "updated_at": "2020-07-08T12:55:49.930Z",
+  "name": "string",
+  "dob": "2020-07-08"
+}
+```
+
+#### Delete Customer
+
+`http://localhost/api/v1/customers/customers/{customer_id}`
+
+METHOD : DELETE
+
+AUTHORIZATION : Bearer Token 
+
+### Postman Collection
+
+Use the following postman collection to test the API. All the requests are given the pre-request scripts to fetch the 
+access token
 
 Postman Collection Link : https://www.getpostman.com/collections/7a0a499428926e623de8
+
 
 
 
