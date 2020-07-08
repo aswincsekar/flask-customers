@@ -1,6 +1,4 @@
-# Klinify Backend Developer Submission
-
-This project is a submission to klinify for the role of Backend Developer
+# Flask Customers API 
 
 ## Requirements:
 
@@ -43,7 +41,7 @@ Replay attacks are possible with JWT since the auth data is stored client-side. 
 Prepare a docker image or docker-compose file that provides a means of easy deployment.
 The build process should include the necessary initialization of Postgres and any misc. configuration.
 
-# Demo Process
+# Docker Demo Process
 
 ## Building Images
 
@@ -58,5 +56,9 @@ The build process should include the necessary initialization of Postgres and an
 1. Open Browser
 2. Go to localhost
 3. Test APIs on the swagger interface
+
+or use the given postman collection to test the API
+
+
 
 
