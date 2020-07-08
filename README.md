@@ -36,6 +36,13 @@ The API endpoints should not be publicly accessible, use JWT to implement authen
 ### Authentication
 Replay attacks are possible with JWT since the auth data is stored client-side. Implement a simple method to block the recycling (replays) of old sessions. This process need not be comprehensive, just share an explanation of the potential pitfalls of what you’ve designed.
 
+**Solution :** 
+
+To prevent replay attacks, we have taken the following steps
+1. Short expiration time for each access token, currently set to 10 minutes
+2. Use of Refresh Token to refresh the access token, this reduces the chances of continuation fo the replay attack
+3. Blacklist Token once Logout is performed
+
 
 ### Deployment or packaging
 Prepare a docker image or docker-compose file that provides a means of easy deployment.
@@ -58,6 +65,8 @@ The build process should include the necessary initialization of Postgres and an
 3. Test APIs on the swagger interface
 
 or use the given postman collection to test the API
+
+Postman Collection Link : https://www.getpostman.com/collections/7a0a499428926e623de8
 
 
 
