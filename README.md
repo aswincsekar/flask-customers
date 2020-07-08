@@ -50,6 +50,14 @@ The build process should include the necessary initialization of Postgres and an
 
 # Docker Demo Process
 
+## Clone the repo
+
+`git clone https://github.com/aswincsekar/flask-customers.git`
+
+## Change working dir
+
+`cd flask-customers`
+
 ## Building Images
 
 `docker-compose -f docker-compose.yml build`
