@@ -176,7 +176,7 @@ AUTHORIZATION : Bearer Token
 Use the following postman collection to test the API. All the requests are given the pre-request scripts to fetch the 
 access token
 
-Postman Collection Link : https://www.getpostman.com/collections/7a0a499428926e623de8
+Postman Collection Link : https://documenter.getpostman.com/view/892323/T17Kbkus
 
 
 
